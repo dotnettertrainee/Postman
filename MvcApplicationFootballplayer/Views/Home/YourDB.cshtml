@@ -1,0 +1,22 @@
+﻿@model MvcApplicationFootballplayer.Models.PlayerView
+@{
+    ViewBag.Title = "YourDB";
+}
+<h2>YourDB</h2>
+
+@using(Html.BeginForm("Update")){
+    
+    @Html.TextBoxFor(m => m.Name);
+    <br />
+    <input type="text" id="name" name="Name" />
+
+    <input type="submit" value="Update" />
+}
+<!--
+<ul class=" "two-columns clearfix>
+
+</ul>
+-->
+
+<p><a href=""></a></p>
+

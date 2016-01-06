@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Firstname" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Printname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Birthdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Primary_Nationality" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Market_Value" Type="Int64" Nullable="false" />
+    <Property Name="Injured" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Position" Relationship="Self.FK_Position_Player" FromRole="Player" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shortname" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Shirtnumber" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="PlayerIDFK" Type="Int32" Nullable="false" />
+    <Property Name="TeamIDFK" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Player" Relationship="Self.FK_Position_Player" FromRole="Position" ToRole="Player" />
+    <NavigationProperty Name="Team" Relationship="Self.FK_Position_Team" FromRole="Position" ToRole="Team" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prefix" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nationality" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Position" Relationship="Self.FK_Position_Team" FromRole="Team" ToRole="Position" />
+  </EntityType>
+  <Association Name="FK_Position_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="Position" Type="Self.Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="PlayerIDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Position_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="Position" Type="Self.Position" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Position">
+        <PropertyRef Name="TeamIDFK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Player" EntityType="Self.Player" />
+    <EntitySet Name="Position" EntityType="Self.Position" />
+    <EntitySet Name="Team" EntityType="Self.Team" />
+    <AssociationSet Name="FK_Position_Player" Association="Self.FK_Position_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="Position" EntitySet="Position" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Position_Team" Association="Self.FK_Position_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="Position" EntitySet="Position" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

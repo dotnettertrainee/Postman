@@ -1,0 +1,8 @@
+c:\users\shariffdeena\documents\visual studio 2013\Projects\Postman\NewsletterService\bin\Debug\NewsletterService.exe.config
+c:\users\shariffdeena\documents\visual studio 2013\Projects\Postman\NewsletterService\bin\Debug\NewsletterService.exe
+c:\users\shariffdeena\documents\visual studio 2013\Projects\Postman\NewsletterService\bin\Debug\NewsletterService.pdb
+c:\users\shariffdeena\documents\visual studio 2013\Projects\Postman\NewsletterService\obj\Debug\NewsletterService.csprojResolveAssemblyReference.cache
+c:\users\shariffdeena\documents\visual studio 2013\Projects\Postman\NewsletterService\obj\Debug\NewsletterService.exe
+c:\users\shariffdeena\documents\visual studio 2013\Projects\Postman\NewsletterService\obj\Debug\NewsletterService.pdb
+c:\users\shariffdeena\documents\visual studio 2013\Projects\Postman\NewsletterService\bin\Debug\NewsletterClass.dll
+c:\users\shariffdeena\documents\visual studio 2013\Projects\Postman\NewsletterService\bin\Debug\NewsletterClass.pdb

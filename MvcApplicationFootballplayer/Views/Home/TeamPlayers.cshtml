@@ -1,0 +1,11 @@
+﻿@model MvcApplicationFootballplayer.Models.TeamPlayerListView
+@{
+    ViewBag.Title = "TeamPlayers";
+}
+<h1>@Html.DisplayFor(d => d.team.Name)</h1>
+
+@foreach (var element in Model.playerList)
+{
+    <p>@Html.DisplayFor(m => element.Printname)</p>
+}
+

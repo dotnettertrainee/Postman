@@ -1,0 +1,13 @@
+﻿@model MvcApplicationFootballplayer.Models.TeamPlayerListView
+@{
+    ViewBag.Title = "TeamView";
+    
+}
+<h2>TeamView</h2>
+
+@foreach (var element in Model.teamList)
+{
+    <p><a href="http://www.405.ch/">@Html.DisplayFor(m => element.Prefix) @Html.DisplayFor(m => element.Name)</a></p>
+}
+
+<p class="demo"></p>
